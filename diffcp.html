@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Stefan Clarke</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <table class="u-full-width">
+      <tbody>
+        <tr>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+          <td> </td>
+        </tr>
+        <tr>
+          <td> <a href="./index.html"> Home </a></td>
+          <td> <center> stefan.clarke@princeton.edu </center> </td>
+          <td> <a href="./CVStefanClarkeAug2022.pdf" download="Stefan Clarke CV"> CV </a></td>
+          <td><a href="https://github.com/stefanlclarke"> Github </a></td>
+          <td> <a href="https://www.linkedin.com/in/stefan-clarke-044bba174/"> Linkedin </a> </td>
+          <td> <a href="https://scholar.google.com/citations?user=P2uGZUUAAAAJ&hl=en"> Scholar </a></td>
+          <td> <a href="https://twitter.com/StefanLClarke"> Twitter </a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="twelve columns" style="margin-top: 1%">
+        <center>
+          <h3> Differentiable Cutting-plane Layers for Mixed-integer
+            Linear Optimization </h3>
+          <h6> Joint work with Gabriele Dragotto, Jaime Fernández Fisac and Bartolomeo Stellato. <a href="https://arxiv.org/abs/2311.03350"> Arxiv link. </a></h6>
+          
+          <p> <i> Sometimes one must solve the same optimization problem repeatedly,</i> with only a small change in the parameters of the problem each time. Examples of this may include
+            a robot which solves a motion planning problem for 10 seconds into the future, then takes an action, then resolves the problem 10ms later when the environment changes.
+            Or an algorithmic trader, who recalculates the best predictor in a linear regression 100 times a second to take into account a small amount of new signal.
+            Does is make sense to re-solve the optimization problem from scratch each time the trader, or the robot, wants to update its estimate? It certainly does not. However,
+            knowledge of how to create solvers which are faster in successive solves of the same problem is very limited.</p>
+
+        <p> In this paper, we contribute new technology to help solve this problem in the case of <i> Mixed Integer Programs (MIPs) </i> using <i> cutting planes.</i> Cutting planes are used 
+            in all state-of-the-art MIP solvers. They are <i> cuts</i> (inequalities) which cut off part of the linear relaxation of the feasible region, without cutting off any integer-feasible
+            points.</p>
+        </center>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="services">
+      <div class="row">
+        <div class="four columns">
+            <center>
+            <img src="images/cutting_plane.png" alt="cutting plane", width="210", height="210">
+            </center>
+        </div>
+        <div class="eight columns", style="margin-top: 5%">
+
+            <p><b> Left: </b>An illustration of a cutting plane. The blue represents the <i> continuous relaxation </i> of the feasible set and the received
+            dots represent the feasible <i> integer </i> points. The green line represents a <i> cutting plane. </i> It cuts off some of the continuous relaxation
+            in such a way that it does not cut off any feasible integer points, so optimizing a function over all integers in the set will return <thead>
+            same objective value.</p>
+            </thead>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+<div class="container">
+    <div class="row">
+      <div class="twelve columns" style="margin-top: 4%">
+        <center>
+
+        <p> We use <i> Cut-Generating Linear Programs (CGLPS)</i> to create a differentiable parametric representation for a family of cutting planes for a given MIP
+            and propose a reinforcement-learning architecture to learn how to generate the most effective cuts for a given parameter. Our trained reinforcement learning
+            agent is able to generate stronger cuts for sequences of problems which it is trained on than many standard cutting-plane generation methods.</p>
+        </center>
+      </div>
+    </div>
+</div>
+
+<div class="container">
+    <section class="services">
+      <div class="row">
+        <div class="five columns">
+            <center>
+            <img src="images/diffcp2.gif" alt="cutting plane", width="256", height="256">
+            </center>
+        </div>
+        <div class="seven columns", style="margin-top: 5%">
+
+            <p><b> Left: </b> An example of an integer program. The continuous relaxation is represented by the polyhedron in the interior of the square.
+            The integer points are the black circles. Our method involves creating a <i> differentiable </i> parametrization for cutting planes, meaning that we can continuously
+            move between cuts, as shown in the gif. This allows us to use a machine learning-algorithm to optimize over the cuts. As you can see, as the number of training
+            iterations increases, the cutting plane cuts off a larger area of the feasible region.</p>
+            </thead>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<div class="container">
+    <div class="row">
+    <div class="twelve columns" style="margin-top: 0%">
+       <center>
+          <p> <b> Abstract:</b> We consider the problem of solving a family of parametric mixed-integer linear optimization problems where some entries in the input data change. We introduce the concept of cutting-plane layer (CPL), i.e., a differentiable cutting-plane generator mapping
+            the problem data and previous iterates to cutting planes. We propose a CPL implementation to generate split cuts, and by combining several CPLs, we devise a differentiable
+            cutting-plane algorithm that exploits the repeated nature of parametric instances. In an
+            offline phase, we train our algorithm by updating the internal parameters controlling
+            the CPLs, thus altering cut generation. Once trained, our algorithm computes, with predictable execution times and a fixed number of cuts, solutions with low integrality gaps.
+            Preliminary computational tests show that our algorithm generalizes on unseen instances
+            and captures underlying parametric structures.</p>
+        </center>
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
